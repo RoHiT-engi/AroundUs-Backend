@@ -1,0 +1,29 @@
+{
+  "name": "imposter-backend",
+  "version": "1.0.0",
+  "description": "Backend For Imposter",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whodissaket/imposter-backend.git"
+  },
+  "author": "@PIDEPIPER",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/whodissaket/imposter-backend/issues"
+  },
+  "homepage": "https://github.com/whodissaket/imposter-backend#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "express-async-handler": "^1.2.0",
+    "mongoose": "^6.2.0",
+    "nodemon": "^2.0.15"
+  }
+}
