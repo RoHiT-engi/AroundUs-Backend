@@ -13,11 +13,7 @@ const addBlog = asyncHandler(async (req, res) => {
         blog_description,
     } = req.body;
     if(req.query.apiID === process.env.API_ID) {
-    const userExists = await Blog.findOne({ email,blog_title });
-    if(userExists) {
-        res.status(400);
-        throw new Error('blog already exists');
-    }
+    
 
     const blog = await Blog.create({
         name,
@@ -49,15 +45,14 @@ const addBlog = asyncHandler(async (req, res) => {
 // @route   GET /api/Blog/Action/:id
 // @access  Private
 const getBlog = asyncHandler(async (req, res) => {
-    const blog = await Blog.findById(req.params.id);
+    const blog = await Blog.findById(req.params._id);
     if(req.query.apiID === process.env.API_ID){
     if(blog){
         res.status(200).json({
             _id : blog._id,
             name : blog.name,
-            email : blog.email,
-            profession : blog.profession,
-            zipcode : blog.zipcode,
+            blog_title : blog.blog_title,
+            blog_description : blog.blog_description
         });
     }else{
         res.status(404);
