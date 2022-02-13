@@ -1,7 +1,7 @@
 import express, { json, urlencoded } from 'express'
 import cors from 'cors'
 import { config } from 'dotenv'
-// import connectDB from './config/db.js'
+import connectDB from './config/db.js'
 
 
 config()
@@ -10,7 +10,7 @@ const port = process.env.PORT
 app.use(cors())
 app.use(json())
 app.use(urlencoded({ extended: false }))
-// connectDB()
+connectDB()
 
 
 app.get('/',(req,res)=>{
