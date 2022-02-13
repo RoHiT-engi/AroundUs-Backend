@@ -11,6 +11,7 @@ const addBlog = asyncHandler(async (req, res) => {
         email,
         blog_title,
         blog_description,
+        blog_content
     } = req.body;
     if(req.query.apiID === process.env.API_ID) {
     
@@ -20,6 +21,7 @@ const addBlog = asyncHandler(async (req, res) => {
         email,
         blog_title,
         blog_description,
+        blog_content
     });
 
     if(blog){
@@ -29,6 +31,7 @@ const addBlog = asyncHandler(async (req, res) => {
             email : blog.email,
             blog_title : blog.blog_title,
             blog_description : blog.blog_description,
+            blog_content : blog.blog_content,
             status : "success",
         });
     }else{
@@ -52,7 +55,8 @@ const getBlog = asyncHandler(async (req, res) => {
             _id : blog._id,
             name : blog.name,
             blog_title : blog.blog_title,
-            blog_description : blog.blog_description
+            blog_description : blog.blog_description,
+            blog_content : blog.blog_content
         });
     }else{
         res.status(404);
@@ -81,6 +85,7 @@ const updateBlog = asyncHandler(async (req, res) => {
         blog.name = name || blog.name;
         blog.email = email || blog.email;
         blog.blog_title = blog_title || blog.blog_title;
+        blog.blog_content  = blog_content || blog.blog_content;
         blog.blog_description = blog_description || blog.blog_description;
 
         const updatedBlog = await blog.save();
@@ -90,6 +95,7 @@ const updateBlog = asyncHandler(async (req, res) => {
             email : updatedBlog.email,
             blog_title : updatedBlog.blog_title,
             blog_description : updatedBlog.blog_description,
+            blog_content : updatedBlog.blog_content,
             data: updatedBlog
         });
     }else{

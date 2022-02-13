@@ -21,6 +21,11 @@ const BlogSchema = new Mongoose.Schema({
         required: true,
         ref: 'Blog',
     },
+    blog_content: {
+        type: String,
+        required: true,
+        ref: 'Blog',
+    }
 },{
     timestamps: true,
   });
